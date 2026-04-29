@@ -1,5 +1,7 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
+import { LanguageService } from '../../services/language.service';
+import { Subscription } from 'rxjs';
 
 interface MenuItem {
   path: string;
@@ -38,8 +40,11 @@ interface Experience {
     ])
   ]
 })
-export class NavOverlayComponent {
+export class NavOverlayComponent implements OnInit, OnDestroy {
   isOpen = false;
+  currentLanguage = 'es';
+  private languageSubscription: Subscription | undefined;
+  
   menuItems: MenuItem[] = [
     { path: 'welcome', label: 'Inicio', icon: 'bi bi-house-door' },
     { path: 'about', label: 'Sobre mí', icon: 'bi bi-person' },
@@ -48,7 +53,23 @@ export class NavOverlayComponent {
     { path: 'contact', label: 'Contacto', icon: 'bi bi-envelope' }
   ];
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(
+    private elementRef: ElementRef,
+    private languageService: LanguageService
+  ) {}
+
+  ngOnInit(): void {
+    this.currentLanguage = this.languageService.getCurrentLanguage();
+    this.languageSubscription = this.languageService.currentLanguage$.subscribe(lang => {
+      this.currentLanguage = lang;
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.languageSubscription) {
+      this.languageSubscription.unsubscribe();
+    }
+  }
 
   @HostListener('document:click', ['$event'])
   clickOutside(event: Event) {
@@ -72,5 +93,9 @@ export class NavOverlayComponent {
       element.scrollIntoView({ behavior: 'smooth' });
       this.toggleMenu(); // Ahora podemos llamarlo sin parámetro
     }
+  }
+
+  changeLanguage(lang: string): void {
+    this.languageService.setLanguage(lang);
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'portfolio';
 
+  constructor(private translate: TranslateService) {}
+
   ngOnInit(): void {
+    // Establecer idiomas soportados
+    this.translate.addLangs(['es', 'en']);
+    this.translate.setDefaultLang('es');
+    
+    // Detectar idioma del navegador o usar español por defecto
+    const browserLang = this.translate.getBrowserLang();
+    const lang = (browserLang && ['es', 'en'].includes(browserLang)) ? browserLang : 'es';
+    this.translate.use(lang);
+    
     this.initScrollReveal();
   }
 

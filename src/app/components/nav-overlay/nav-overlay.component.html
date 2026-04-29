@@ -18,16 +18,36 @@
     </div>
 
     <div class="overlay-footer" [@itemAnimation]>
-      <div class="social-links">
-        <a href="https://github.com/faravena99" target="_blank">
-          <i class="bi bi-github"></i>
-        </a>
-        <a href="https://linkedin.com/in/felipe-alejandro-aravena-ponce-174430163/" target="_blank">
-          <i class="bi bi-linkedin"></i>
-        </a>
-        <a href="mailto:felipe.aravena99@gmail.com">
-          <i class="bi bi-envelope"></i>
-        </a>
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="https://github.com/faravena99" target="_blank">
+            <i class="bi bi-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/felipe-alejandro-aravena-ponce-174430163/" target="_blank">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="mailto:felipe.aravena99@gmail.com">
+            <i class="bi bi-envelope"></i>
+          </a>
+        </div>
+
+        <div class="language-selector">
+          <button 
+            class="lang-btn" 
+            [class.active]="currentLanguage === 'es'"
+            (click)="changeLanguage('es')"
+            title="Español">
+            🇪🇸 ES
+          </button>
+          <span class="lang-separator">|</span>
+          <button 
+            class="lang-btn" 
+            [class.active]="currentLanguage === 'en'"
+            (click)="changeLanguage('en')"
+            title="English">
+            🇺🇸 EN
+          </button>
+        </div>
       </div>
     </div>
   </div>
