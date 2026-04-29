@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Hola, soy Felipe Aravena",
+    "subtitle": "Construyo soluciones de alto impacto con Angular, Spring Boot y el poder de la Inteligencia Artificial. Lidero equipos adoptando proactivamente GitHub Copilot, Claude y Cursor para acelerar entregas y elevar la calidad del código.",
+    "downloadCV": "Descargar CV",
+    "viewProjects": "Ver Proyectos"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description": "Soy un desarrollador full-stack apasionado con enfoque en crear soluciones escalables y eficientes. Tengo experiencia con tecnologías modernas y un fuerte compromiso con el aprendizaje continuo."
+  },
+  "experience": {
+    "title": "Última Experiencia",
+    "viewMore": "Ver Más"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "viewProject": "Ver Proyecto"
+  },
+  "skills": {
+    "title": "Habilidades"
+  },
+  "footer": {
+    "contact": "Ponte en contacto",
+    "email": "Correo",
+    "phone": "Teléfono",
+    "location": "Ubicación"
+  }
+}
