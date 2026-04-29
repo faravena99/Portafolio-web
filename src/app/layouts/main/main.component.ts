@@ -1,15 +1,35 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnDestroy, OnInit } from '@angular/core';
+import { LanguageService } from '../../services/language.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements AfterViewInit {
+export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('typewriter') typewriterElement!: ElementRef;
+  
+  t = (key: string) => this.languageService.useTranslation('shared').t(key);
+  private languageSub: Subscription | undefined;
+
+  constructor(private languageService: LanguageService) {}
+
+  ngOnInit(): void {
+    // Actualizar el typer cuando cambia el idioma
+    this.languageSub = this.languageService.language$.subscribe(() => {
+      this.initTypewriter();
+    });
+  }
 
   ngAfterViewInit() {
     this.initTypewriter();
+  }
+
+  ngOnDestroy(): void {
+    if (this.languageSub) {
+      this.languageSub.unsubscribe();
+    }
   }
 
   private initTypewriter() {

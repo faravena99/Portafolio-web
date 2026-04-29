@@ -15,11 +15,11 @@
 
         <div class="hero-badge reveal">
           <span class="badge-pulse"></span>
-          Disponible para nuevos proyectos
+          {{ t('hero.available') }}
         </div>
 
         <h1 class="hero-title reveal">
-          Hola, soy
+          {{ t('hero.title') }}
           <span class="gradient-text typewriter not-started" #typewriter></span>
         </h1>
 
@@ -32,8 +32,7 @@
         </p>
 
         <p class="hero-description reveal">
-          Construyo soluciones de alto impacto con <strong>Angular</strong>, <strong>Spring Boot</strong> y el poder de la <strong>Inteligencia Artificial</strong>.
-          Lidero equipos adoptando proactivamente <strong>GitHub Copilot</strong>, <strong>Claude</strong> y <strong>Cursor</strong> para acelerar entregas y elevar la calidad del código.
+          {{ t('hero.subtitle') }}
         </p>
 
         <div class="hero-buttons reveal">
@@ -42,11 +41,11 @@
              rel="noopener noreferrer"
              class="btn btn-primary glow-btn">
             <i class="fa fa-download"></i>
-            Descargar CV
+            {{ t('hero.downloadCV') }}
           </a>
           <a href="#projects" class="btn btn-glass">
             <i class="fa fa-code"></i>
-            Ver Proyectos
+            {{ t('hero.viewProjects') }}
           </a>
           <a href="https://github.com/faravena99" target="_blank" class="btn btn-glass">
             <i class="bi bi-github"></i>

@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
-import { LanguageService } from '../../services/language.service';
+import { LanguageService, Language } from '../../services/language.service';
 import { Subscription } from 'rxjs';
 
 interface MenuItem {
@@ -60,7 +60,7 @@ export class NavOverlayComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.currentLanguage = this.languageService.getCurrentLanguage();
-    this.languageSubscription = this.languageService.currentLanguage$.subscribe(lang => {
+    this.languageSubscription = this.languageService.language$.subscribe((lang: string) => {
       this.currentLanguage = lang;
     });
   }
@@ -96,6 +96,6 @@ export class NavOverlayComponent implements OnInit, OnDestroy {
   }
 
   changeLanguage(lang: string): void {
-    this.languageService.setLanguage(lang);
+    this.languageService.changeLanguage(lang as Language);
   }
 }
