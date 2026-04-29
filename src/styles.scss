@@ -1,73 +1,96 @@
-// Variables globales
-$primary-color: #3498db;
-$secondary-color: #2c3e50;
-$text-color: #2c3e50;
-$light-bg: #f8f9fa;
-$gradient: linear-gradient(135deg, $primary-color, $secondary-color);
-
-// Mixins globales
-@mixin section-padding {
-  padding: 6rem 0;
-  @media (max-width: 768px) {
-    padding: 4rem 0;
-  }
+// CSS Variables
+:root {
+  --bg-primary: #030712;
+  --bg-secondary: #0d1117;
+  --bg-card: rgba(17, 24, 39, 0.8);
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --accent-cyan: #06b6d4;
+  --accent-green: #10b981;
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --border: rgba(255,255,255,0.08);
 }
 
-// Estilos generales
+// Reset
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+// Base
 body {
-  color: $text-color;
-  background-color: $light-bg;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  background: #030712;
+  color: #f9fafb;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-.text-center {
-  text-align: center;
+// Scrollbar
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #030712; }
+::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+
+// Container
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.text-white {
-  color: #fff;
-}
-
-.bg-primary {
-  background-color: $primary-color;
-}
-
-.bg-secondary {
-  background-color: $secondary-color;
-}
-
-.bg-dark {
-  background-color: #343a40;
-}
-
-.btn {
-  border-radius: 25px;
-}
-
-.section {
-  padding: 100px 0;
-}
-
-.bg-light {
-  background-color: #f8f9fa;
-}
-
-.favicon {
-  width: 10px;
-  height: 10px;
-}
-
+// Section tag
 .section-tag {
   display: inline-block;
-  padding: 0.5rem 1rem;
-  background: rgba($primary-color, 0.1);
-  color: $primary-color;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  padding: 4px 14px;
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.25);
+  color: #93c5fd;
+  border-radius: 100px;
+  font-size: 0.82rem;
   font-weight: 500;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.3px;
+}
+.welcome-tag { @extend .section-tag; }
+
+// Gradient text
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
 }
 
-.welcome-tag {
-  @extend .section-tag;
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
+
+// Scroll reveal
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  &.visible { opacity: 1; transform: translateY(0); }
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  &.visible { opacity: 1; transform: translateX(0); }
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  &.visible { opacity: 1; transform: translateX(0); }
+}
+
+// Utilities
+.text-center { text-align: center; }
+.text-white { color: #fff; }
+.section { padding: 6rem 0; }
+@media (max-width: 768px) { .section { padding: 4rem 0; } }

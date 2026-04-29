@@ -1,52 +1,39 @@
 import { Component } from '@angular/core';
 
+interface SkillCategory {
+  label: string;
+  icon: string;
+  isAI?: boolean;
+  isSoft?: boolean;
+  skills: string[];
+}
+
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss'],
 })
 export class SkillsComponent {
-  skills = [
-    // Técnicas
-    'Angular',
-    'Spring Boot',
-    'TypeScript',
-    'JavaScript',
-    'Java',
-    'NestJS',
-    'NodeJS',
-    'MongoDB',
-    'SQL Server',
-    'RxJS',
-    'Redux',
-    'Jasmine',
-    'Bootstrap',
-    'PrimeNG',
-    'CSS3',
-    'HTML5',
-    'Postman',
-    'Git',
-    'Azure DevOps',
-    'Docker',
-    // IA & Productividad
-    'GitHub Copilot',
-    'Claude (Anthropic)',
-    'ChatGPT',
-    'Cursor AI',
-    'Prompt Engineering',
-    'AI-Driven Development',
-    // Soft skills & liderazgo
-    'Liderazgo Técnico',
-    'Principios SOLID',
-    'Metodologías Ágiles',
-    'Scrum',
-    'Coaching',
-    'Pair Programming',
-    'POO',
-    'Clean Code',
-    'Resolución de problemas',
-    'Gestión del cambio',
-    'Trabajo en equipo',
-    'Aprendizaje continuo',
+  categories: SkillCategory[] = [
+    {
+      label: 'Frontend', icon: '🎨',
+      skills: ['Angular 17+', 'TypeScript', 'RxJS', 'Redux/NgRx', 'PrimeNG', 'HTML5', 'CSS3/SCSS', 'Bootstrap', 'Jasmine', 'Responsive Design']
+    },
+    {
+      label: 'Backend & Datos', icon: '⚙️',
+      skills: ['Spring Boot', 'Java', 'Node.js', 'NestJS', 'REST APIs', 'MongoDB', 'SQL Server', 'Apache Camel', 'Azure Storage Queue']
+    },
+    {
+      label: 'Inteligencia Artificial', icon: '🤖', isAI: true,
+      skills: ['GitHub Copilot', 'Claude (Anthropic)', 'Cursor AI', 'ChatGPT / GPT-4', 'Prompt Engineering', 'AI-Driven Development', 'LLM Tools', 'Evaluación de herramientas IA']
+    },
+    {
+      label: 'DevOps & Herramientas', icon: '🛠️',
+      skills: ['Azure DevOps', 'Git', 'Docker', 'Postman', 'CI/CD Pipelines', 'Scrum / Agile']
+    },
+    {
+      label: 'Liderazgo & Soft Skills', icon: '🚀', isSoft: true,
+      skills: ['Liderazgo Técnico', 'Mentoring', 'Code Reviews', 'Pair Programming', 'SOLID Principles', 'Clean Code', 'POO', 'Pensamiento Abstracto', 'Resolución de problemas']
+    },
   ];
 }

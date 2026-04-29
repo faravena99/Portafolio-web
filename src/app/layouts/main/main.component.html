@@ -1,47 +1,105 @@
 <div class="landing-page">
-  <!-- Hero Section -->
+
+  <!-- ── Background Effects ── -->
+  <div class="bg-effects" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-bg"></div>
+  </div>
+
+  <!-- ── Hero Section ── -->
   <section id="welcome" class="hero-section">
     <div class="container">
       <div class="hero-content">
-        <span class="welcome-tag">👋 Bienvenido a mi portafolio</span>
-        <h1 class="hero-title">
-          ¡Hola, soy <span class="highlight typewriter not-started" #typewriter></span>
+
+        <div class="hero-badge reveal">
+          <span class="badge-pulse"></span>
+          Disponible para nuevos proyectos
+        </div>
+
+        <h1 class="hero-title reveal">
+          Hola, soy
+          <span class="gradient-text typewriter not-started" #typewriter></span>
         </h1>
-        <p class="hero-description">
-          Desarrollador Full Stack especializado en construir soluciones modernas
-          con Angular, Spring Boot y el poder de la Inteligencia Artificial.
-          Lidero equipos adoptando proactivamente herramientas de IA para
-          acelerar entregas y elevar la calidad del código.
+
+        <p class="hero-role reveal">
+          <span class="role-tag">Full Stack Developer</span>
+          <span class="role-sep">·</span>
+          <span class="role-tag ai-tag">🤖 AI-Driven</span>
+          <span class="role-sep">·</span>
+          <span class="role-tag">Tech Lead</span>
         </p>
-        <div class="hero-buttons">
-          <a href="/assets/Felipe_Aravena_Ponce_CV.pdf" class="btn btn-primary" download>
-            <i class="fa fa-download me-2"></i>
+
+        <p class="hero-description reveal">
+          Construyo soluciones de alto impacto con <strong>Angular</strong>, <strong>Spring Boot</strong> y el poder de la <strong>Inteligencia Artificial</strong>.
+          Lidero equipos adoptando proactivamente <strong>GitHub Copilot</strong>, <strong>Claude</strong> y <strong>Cursor</strong> para acelerar entregas y elevar la calidad del código.
+        </p>
+
+        <div class="hero-buttons reveal">
+          <a href="/assets/CV_Felipe_Aravena_2025.html" class="btn btn-primary glow-btn" download="CV_Felipe_Aravena.html">
+            <i class="fa fa-download"></i>
             Descargar CV
           </a>
-          <a href="#projects" class="btn btn-outline">
-            <i class="fa fa-project-diagram me-2"></i>
+          <a href="#projects" class="btn btn-glass">
+            <i class="fa fa-code"></i>
             Ver Proyectos
           </a>
+          <a href="https://github.com/faravena99" target="_blank" class="btn btn-glass">
+            <i class="bi bi-github"></i>
+            GitHub
+          </a>
         </div>
-        <app-about></app-about>
+
+        <div class="hero-stats reveal">
+          <div class="hero-stat">
+            <span class="stat-num">6+</span>
+            <span class="stat-lbl">Años de Experiencia</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="hero-stat">
+            <span class="stat-num">30+</span>
+            <span class="stat-lbl">Proyectos Completados</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="hero-stat">
+            <span class="stat-num">10+</span>
+            <span class="stat-lbl">Herramientas de IA</span>
+          </div>
+        </div>
+
         <app-tech-stack></app-tech-stack>
+
       </div>
     </div>
-    <div class="hero-shape"></div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"><div class="scroll-dot-anim"></div></div>
+    </div>
   </section>
 
-  <!-- Latest Experience Section -->
+  <!-- ── About Section ── -->
+  <section id="about" class="about-wrapper reveal">
+    <app-about></app-about>
+  </section>
+
+  <!-- ── Experience Section ── -->
+  <div class="reveal">
     <app-latest-experience></app-latest-experience>
+  </div>
 
-  <!-- Skills Section -->
-  <app-skills></app-skills>
+  <!-- ── Skills Section ── -->
+  <div class="reveal">
+    <app-skills></app-skills>
+  </div>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects-section">
+  <!-- ── Projects Section ── -->
+  <section id="projects" class="projects-section reveal">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Portfolio</span>
-        <h2 class="section-title">Mis Proyectos Destacados</h2>
+        <h2 class="section-title gradient-text">Mis Proyectos Destacados</h2>
+        <p class="section-subtitle">Proyectos open source y contribuciones en GitHub</p>
       </div>
       <app-proyects></app-proyects>
     </div>

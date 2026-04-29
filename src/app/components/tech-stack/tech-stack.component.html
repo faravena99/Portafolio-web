@@ -1,11 +1,13 @@
-<div class="tech-stack">
-  <span class="tech-label">Stack Tecnológico:</span>
+<div class="tech-stack-section">
+  <div class="tech-label">
+    <span class="label-line"></span>
+    Stack Tecnológico
+    <span class="label-line"></span>
+  </div>
   <div class="tech-icons">
-    <ng-container *ngFor="let tech of technologies">
-      <div class="tech-icon" [title]="tech.name">
-        <i [class]="tech.icon"></i>
-        <span>{{tech.name}}</span>
-      </div>
-    </ng-container>
+    <div class="tech-icon" *ngFor="let tech of technologies" [title]="tech.name">
+      <i [class]="tech.icon"></i>
+      <span>{{ tech.name }}</span>
+    </div>
   </div>
 </div>

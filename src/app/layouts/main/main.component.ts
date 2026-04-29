@@ -17,26 +17,21 @@ export class MainComponent implements AfterViewInit {
     const element = this.typewriterElement.nativeElement;
     let index = 0;
 
-    // Inicializa el contenido con el cursor
-    element.innerHTML = '<span class="text"></span><span class="cursor"></span>';
-    const textElement = element.querySelector('.text');
-    const cursorElement = element.querySelector('.cursor');
+    element.textContent = '';
 
     const writeText = () => {
       if (index === 0) {
         element.classList.remove('not-started');
       }
       if (index < text.length) {
-        textElement.textContent += text.charAt(index);
+        element.textContent += text.charAt(index);
         index++;
         setTimeout(writeText, 150);
       } else {
         element.classList.add('finished');
-        cursorElement.style.display = 'inline-block'; // Asegúrate de que el cursor siga visible
       }
     };
 
-    writeText();
+    setTimeout(writeText, 600);
   }
 }
-

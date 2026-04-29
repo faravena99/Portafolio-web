@@ -1,84 +1,73 @@
-.svg-icon {
-  width: 32px;
-  height: 32px;
-  transition: all 0.3s ease;
-  image-rendering: crisp-edges;
-  shape-rendering: geometricPrecision;
-  fill: var(--secondary-color, #2c3e50); // Color inicial
-}
+:host { display: block; }
 
-:host {
-  display: block;
-}
+.tech-stack-section {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
 
-.tech-stack {
-  margin-top: 2rem;
-  margin-bottom: 6rem;
   .tech-label {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #6b7280;
+    font-size: 0.8rem;
     font-weight: 600;
-    color: var(--secondary-color, #2c3e50);
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.25rem;
+
+    .label-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+    }
   }
 
   .tech-icons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 1.5rem;
-    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
   .tech-icon {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.3s ease, color 0.3s ease;
-    cursor: pointer;
+    gap: 6px;
+    padding: 0.875rem 1rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    min-width: 68px;
+    transition: all 0.25s ease;
+    cursor: default;
 
     i {
-      font-size: 3rem;
-      transition: color 0.3s ease;
+      font-size: 1.75rem;
+      color: #6b7280;
+      transition: color 0.25s ease, filter 0.25s ease;
     }
 
     span {
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      color: #6c757d;
-      transition: color 0.3s ease;
+      font-size: 0.7rem;
+      color: #4b5563;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: color 0.25s ease;
     }
 
     &:hover {
-      transform: scale(1.1);
-      i {
-        color: #3498db; // Cambia el color del icono al pasar el ratón
-      }
-      span {
-        color: #3498db; // Cambia el color del texto al pasar el ratón
-      }
+      border-color: rgba(59,130,246,0.35);
+      background: rgba(59,130,246,0.06);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(59,130,246,0.12), 0 0 0 1px rgba(59,130,246,0.15);
+
+      i { color: #3b82f6; filter: drop-shadow(0 0 8px rgba(59,130,246,0.5)); }
+      span { color: #93c5fd; }
     }
   }
 }
 
 @media (max-width: 768px) {
-  .tech-stack {
-    .tech-icons {
-      grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-      gap: 1rem;
-    }
-
-    .tech-icon {
-      i {
-        font-size: 1.5rem;
-      }
-
-      span {
-        font-size: 0.75rem;
-      }
-    }
-  }
-}
-
-.tech-icon:hover .svg-icon {
-  fill: var(--primary-color, #3498db); // Cambia el color al pasar el ratón
+  .tech-stack-section .tech-icons { gap: 0.5rem; }
+  .tech-stack-section .tech-icon { padding: 0.75rem; min-width: 60px; }
 }

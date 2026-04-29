@@ -1,10 +1,24 @@
 <section class="skills-section">
   <div class="container">
-    <h4>Habilidades</h4>
-    <div class="skills-list">
-      <span class="skill-tag" *ngFor="let skill of skills">
-        {{ skill }}
-      </span>
+    <div class="skills-header">
+      <span class="section-tag">⚡ Habilidades</span>
+      <h2 class="section-title">Stack & Competencias</h2>
+      <p class="skills-subtitle">Tecnologías, herramientas de IA y habilidades blandas</p>
+    </div>
+
+    <div class="skills-categories">
+      <div class="skill-category-block" *ngFor="let cat of categories">
+        <h4 class="cat-title">{{ cat.icon }} {{ cat.label }}</h4>
+        <div class="skill-tags">
+          <span
+            class="skill-tag"
+            *ngFor="let skill of cat.skills"
+            [class.ai-skill]="cat.isAI"
+            [class.soft-skill]="cat.isSoft">
+            {{ skill }}
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
