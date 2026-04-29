@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StatItem } from './about.interface';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss'],
 })
-export class AboutComponent {
+export class AboutComponent implements OnInit {
+  t = (key: string) => this.languageService.useTranslation('shared').t(key);
+
   personalInfo = {
     name: 'Felipe Alejandro Aravena Ponce',
     title: 'Full Stack Developer | AI-Driven Development',
@@ -21,6 +24,13 @@ export class AboutComponent {
     description:
       'Desarrollador Full Stack con más de 6 años de experiencia construyendo soluciones de alto rendimiento. Especializado en Angular y Spring Boot, con un enfoque profundo en el desarrollo asistido por IA. Lidero equipos técnicos adoptando proactivamente herramientas como GitHub Copilot, Claude y Cursor para acelerar entregas y elevar la calidad del código.',
   };
+
+  features: string[] = [];
+  stats = [
+    { number: '6+', label: 'Años' },
+    { number: '30+', label: 'Proyectos' },
+    { number: '10+', label: 'Tecnologías' }
+  ];
 
   skills = [
     'Angular',
@@ -38,6 +48,44 @@ export class AboutComponent {
     'SOLID Principles',
   ];
 
+  constructor(private languageService: LanguageService) {}
+
+  ngOnInit(): void {
+    this.updateFeatures();
+    // Actualizar características cuando cambia el idioma
+    this.languageService.language$.subscribe(() => {
+      this.updateFeatures();
+    });
+  }
+
+  private updateFeatures(): void {
+    const featuresData = this.t('about.features');
+    // Intentar parsear si es string JSON
+    if (typeof featuresData === 'string' && featuresData.startsWith('[')) {
+      try {
+        this.features = JSON.parse(featuresData);
+      } catch {
+        this.features = [
+          'Desarrollo Full Stack con Angular & Spring Boot',
+          'Liderazgo técnico y mentoring',
+          'Integración de IA en pipelines de desarrollo',
+          'Arquitectura escalable y clean code',
+          'Metodologías ágiles y DevOps'
+        ];
+      }
+    } else if (Array.isArray(featuresData)) {
+      this.features = featuresData as string[];
+    } else {
+      this.features = [
+        'Desarrollo Full Stack con Angular & Spring Boot',
+        'Liderazgo técnico y mentoring',
+        'Integración de IA en pipelines de desarrollo',
+        'Arquitectura escalable y clean code',
+        'Metodologías ágiles y DevOps'
+      ];
+    }
+  }
+
   education = [
     {
       course: 'Angular Developer',
@@ -48,19 +96,5 @@ export class AboutComponent {
         'https://www.credly.com/badges/83535e78-400a-4e48-8181-6c026b24d368?source=linked_in_profile',
     },
   ];
-
-  features: string[] = [
-    'Desarrollo Full Stack Moderno',
-    'Liderazgo Técnico de Equipos',
-    'Desarrollo Asistido por IA',
-    'Especialización en Herramientas de IA',
-    'Integración de AI en Workflows',
-    'Clean Code & SOLID Principles',
-  ];
-
-  stats: StatItem[] = [
-    { number: '6+', label: 'Años de Experiencia' },
-    { number: '30+', label: 'Proyectos Completados' },
-    { number: '10+', label: 'Herramientas de IA' },
-  ];
 }
+

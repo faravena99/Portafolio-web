@@ -2,20 +2,14 @@
   <div class="container">
     <div class="about-content">
       <div class="section-header">
-        <span class="section-tag-about">👨‍💻 Sobre mí</span>
+        <span class="section-tag-about">👨‍💻 {{ t('about.title') }}</span>
         <h2>{{ personalInfo.name }}</h2>
         <h3>{{ personalInfo.title }}</h3>
       </div>
       <div class="about-grid">
         <div class="about-text">
           <p>
-            Soy un desarrollador Full Stack apasionado por construir soluciones
-            de alto impacto combinando código limpio, liderazgo técnico y el poder
-            de la <strong>Inteligencia Artificial</strong>. Con más de <strong>6 años de experiencia</strong>, me
-            especializo en <strong>Angular</strong> y <strong>Spring Boot</strong>, integrando proactivamente
-            herramientas de IA como <strong>GitHub Copilot</strong>, <strong>Claude</strong> y <strong>Cursor</strong> en cada
-            etapa del desarrollo para multiplicar la productividad del equipo
-            y la calidad del producto final.
+            {{ t('about.description') }}
           </p>
           <ul class="about-features">
             <li *ngFor="let feature of features">

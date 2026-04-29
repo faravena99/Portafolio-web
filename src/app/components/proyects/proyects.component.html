@@ -8,7 +8,7 @@
               <h5 class="card-title">{{ project.title | titleFormat }}</h5>
               <p class="card-text">{{ project.description }}</p>
               <a [href]="project.link" class="btn btn-primary" target="_blank">
-                Ver Proyecto
+                {{ t('projects.viewProject') }}
                 <i class="fas fa-external-link-alt ms-2"></i>
               </a>
             </div>

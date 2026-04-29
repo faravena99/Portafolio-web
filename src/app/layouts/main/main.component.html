@@ -56,17 +56,17 @@
         <div class="hero-stats reveal">
           <div class="hero-stat">
             <span class="stat-num">6+</span>
-            <span class="stat-lbl">Años de Experiencia</span>
+            <span class="stat-lbl">{{ t('hero.yearsExp') }}</span>
           </div>
           <div class="stat-divider"></div>
           <div class="hero-stat">
             <span class="stat-num">30+</span>
-            <span class="stat-lbl">Proyectos Completados</span>
+            <span class="stat-lbl">{{ t('hero.projects') }}</span>
           </div>
           <div class="stat-divider"></div>
           <div class="hero-stat">
             <span class="stat-num">10+</span>
-            <span class="stat-lbl">Herramientas de IA</span>
+            <span class="stat-lbl">{{ t('hero.aiTools') }}</span>
           </div>
         </div>
 
@@ -75,7 +75,7 @@
       </div>
     </div>
     <div class="scroll-indicator">
-      <span>Scroll</span>
+      <span>{{ t('hero.scroll') }}</span>
       <div class="scroll-line"><div class="scroll-dot-anim"></div></div>
     </div>
   </section>
@@ -100,8 +100,8 @@
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Portfolio</span>
-        <h2 class="section-title gradient-text">Mis Proyectos Destacados</h2>
-        <p class="section-subtitle">Proyectos open source y contribuciones en GitHub</p>
+        <h2 class="section-title gradient-text">{{ t('projects.title') }}</h2>
+        <p class="section-subtitle">{{ t('projects.subtitle') }}</p>
       </div>
       <app-proyects></app-proyects>
     </div>

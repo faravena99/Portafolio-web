@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Swiper } from 'swiper';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { LanguageService } from '../../services/language.service';
 Swiper.use([Navigation, Pagination, Autoplay]);
 @Component({
   selector: 'app-proyects',
@@ -10,8 +11,12 @@ Swiper.use([Navigation, Pagination, Autoplay]);
 })
 export class ProyectsComponent implements OnInit {
   projects: any = [];
+  t = (key: string) => this.languageService.useTranslation('shared').t(key);
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private languageService: LanguageService
+  ) {}
 
   ngOnInit(): void {
     this.fetchProjects();

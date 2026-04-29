@@ -5,7 +5,7 @@
         <img src="assets/logo.png" alt="Logo de Felipe Aravena" class="footer-logo">
         <h3 class="brand-name">Felipe Aravena</h3>
         <p class="brand-description">
-          Full Stack Developer especializado en Angular, Spring Boot y desarrollo asistido por IA
+          {{ t('footer.description') }}
         </p>
         <div class="social-links">
           <a href="https://github.com/faravena99" target="_blank" class="social-link">
@@ -20,19 +20,19 @@
         </div>
       </div>
       <div class="footer-nav">
-        <h4>Navegación</h4>
+        <h4>{{ t('footer.navigation') }}</h4>
         <ul>
-          <li><a href="#welcome">Inicio</a></li>
-          <li><a href="#about">Sobre mí</a></li>
-          <li><a href="#projects">Proyectos</a></li>
-          <li><a href="#contact">Contacto</a></li>
+          <li><a href="#welcome">{{ t('footer.home') }}</a></li>
+          <li><a href="#about">{{ t('footer.about') }}</a></li>
+          <li><a href="#projects">{{ t('projects.title') }}</a></li>
+          <li><a href="#contact">{{ t('footer.contact') }}</a></li>
         </ul>
       </div>
       <div class="footer-contact">
-        <h4>Contacto</h4>
-        <p>¿Tienes un proyecto en mente?</p>
+        <h4>{{ t('footer.contactLabel') }}</h4>
+        <p>{{ t('footer.projectQuestion') }}</p>
         <a href="mailto:felipe.aravena99@gmail.com" class="contact-btn">
-          Trabajemos juntos
+          {{ t('footer.workTogether') }}
           <i class="bi bi-arrow-right"></i>
         </a>
       </div>
@@ -40,9 +40,9 @@
   </div>
   <div class="footer-bottom">
     <div class="container">
-      <p>&copy; {{currentYear}} Felipe Aravena. Todos los derechos reservados.</p>
+      <p>&copy; {{currentYear}} Felipe Aravena. {{ t('footer.copyright') }}</p>
       <p class="made-with">
-        Hecho con <i class="bi bi-heart-fill"></i> usando Angular
+        {{ t('footer.madeWith') }} <i class="bi bi-heart-fill"></i> {{ t('footer.usingAngular') }}
       </p>
     </div>
   </div>

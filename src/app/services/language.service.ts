@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { distinctUntilChanged, shareReplay } from 'rxjs/operators';
 
 export type Language = 'es' | 'en';
-export type TranslationValue = string | TranslationDictionary;
+export type TranslationValue = string | TranslationDictionary | string[] | any[];
 export type TranslationDictionary = { [key: string]: TranslationValue };
 
 @Injectable({

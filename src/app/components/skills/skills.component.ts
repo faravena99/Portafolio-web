@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LanguageService } from '../../services/language.service';
 
 interface SkillCategory {
   label: string;
@@ -14,6 +15,10 @@ interface SkillCategory {
   styleUrls: ['./skills.component.scss'],
 })
 export class SkillsComponent {
+  t = (key: string) => this.languageService.useTranslation('shared').t(key);
+
+  constructor(private languageService: LanguageService) {}
+
   categories: SkillCategory[] = [
     {
       label: 'Frontend', icon: '🎨',

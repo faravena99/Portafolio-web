@@ -1,9 +1,9 @@
 <section id="latest-experience" class="experience-section">
   <div class="container">
     <div class="section-header">
-      <span class="section-tag">💼 Trayectoria</span>
-      <h2 class="section-title">Experiencia Profesional</h2>
-      <p class="section-subtitle">+6 años construyendo soluciones en banca, energía, fintech y minería</p>
+      <span class="section-tag">💼 {{ t('experience.title') }}</span>
+      <h2 class="section-title">{{ t('experience.title') }}</h2>
+      <p class="section-subtitle">{{ t('experience.subtitle') }}</p>
     </div>
     <div class="experience-timeline">
       <div
@@ -26,14 +26,14 @@
           <div class="card-meta">
             <span class="period"><i class="fa fa-calendar"></i>{{ exp.period }}</span>
             <span class="location"><i class="fa fa-map-marker"></i>{{ exp.location }}</span>
-            <span class="badge-current" *ngIf="exp.current">🤖 IA + Liderazgo</span>
+            <span class="badge-current" *ngIf="exp.current">{{ t('experience.current') }}</span>
           </div>
         </div>
 
         <p class="description">{{ exp.description }}</p>
 
         <div class="achievements" *ngIf="exp.achievements?.length">
-          <p class="achievements-title"><i class="fa fa-star"></i> Logros destacados</p>
+          <p class="achievements-title"><i class="fa fa-star"></i> {{ t('experience.achievements') }}</p>
           <ul>
             <li *ngFor="let a of exp.achievements">{{ a }}</li>
           </ul>

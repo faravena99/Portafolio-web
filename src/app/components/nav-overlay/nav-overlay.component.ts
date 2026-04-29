@@ -45,24 +45,32 @@ export class NavOverlayComponent implements OnInit, OnDestroy {
   currentLanguage = 'es';
   private languageSubscription: Subscription | undefined;
   
-  menuItems: MenuItem[] = [
-    { path: 'welcome', label: 'Inicio', icon: 'bi bi-house-door' },
-    { path: 'about', label: 'Sobre mí', icon: 'bi bi-person' },
-    { path: 'projects', label: 'Proyectos', icon: 'bi bi-code-square' },
-    { path: 'latest-experience', label: 'Última Experiencia', icon: 'bi bi-briefcase' },
-    { path: 'contact', label: 'Contacto', icon: 'bi bi-envelope' }
-  ];
+  menuItems: MenuItem[] = [];
 
   constructor(
     private elementRef: ElementRef,
     private languageService: LanguageService
-  ) {}
+  ) {
+    this.updateMenuItems();
+  }
 
   ngOnInit(): void {
     this.currentLanguage = this.languageService.getCurrentLanguage();
     this.languageSubscription = this.languageService.language$.subscribe((lang: string) => {
       this.currentLanguage = lang;
+      this.updateMenuItems();
     });
+  }
+
+  private updateMenuItems(): void {
+    const t = (key: string) => this.languageService.useTranslation('shared').t(key);
+    this.menuItems = [
+      { path: 'welcome', label: t('footer.home'), icon: 'bi bi-house-door' },
+      { path: 'about', label: t('footer.about'), icon: 'bi bi-person' },
+      { path: 'projects', label: t('projects.title'), icon: 'bi bi-code-square' },
+      { path: 'latest-experience', label: t('experience.title'), icon: 'bi bi-briefcase' },
+      { path: 'contact', label: t('footer.contact'), icon: 'bi bi-envelope' }
+    ];
   }
 
   ngOnDestroy(): void {

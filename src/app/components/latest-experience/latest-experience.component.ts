@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LanguageService } from '../../services/language.service';
 
 interface Experience {
   title: string;
@@ -18,6 +19,10 @@ interface Experience {
   styleUrls: ['./latest-experience.component.scss']
 })
 export class LatestExperienceComponent {
+  t = (key: string) => this.languageService.useTranslation('shared').t(key);
+
+  constructor(private languageService: LanguageService) {}
+
   experiences: Experience[] = [
     {
       title: 'Full Stack Developer',
@@ -94,6 +99,7 @@ export class LatestExperienceComponent {
         'Diseño adaptativo y optimizado para el usuario final incrementando la usabilidad del sistema',
         'Integración fluida de servicios backend en la plataforma renovada'
       ]
-    },
+    }
   ];
 }
+
