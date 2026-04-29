@@ -95,7 +95,7 @@ export const translationES: TranslationDictionary = {
     subtitle: 'Tecnologías, herramientas de IA y habilidades blandas',
     categories: [
       { label: 'Frontend', skills: ['Angular 17+', 'TypeScript', 'RxJS', 'Redux/NgRx', 'PrimeNG', 'HTML5', 'CSS3/SCSS', 'Bootstrap', 'Jasmine', 'Diseño Responsivo'] },
-      { label: 'Backend & Datos', skills: ['Spring Boot', 'Java', 'Node.js', 'NestJS', 'REST APIs', 'MongoDB', 'SQL Server', 'Apache Camel', 'Azure Storage Queue'] },
+      { label: 'Backend & Datos', skills: ['Spring Boot', 'Java', '.NET', 'Node.js', 'NestJS', 'REST APIs', 'MongoDB', 'SQL Server', 'Apache Camel', 'Azure Storage Queue'] },
       { label: 'Inteligencia Artificial', skills: ['GitHub Copilot', 'Claude (Anthropic)', 'Cursor AI', 'ChatGPT / GPT-4', 'Prompt Engineering', 'AI-Driven Development', 'LLM Tools', 'Evaluación de herramientas IA'] },
       { label: 'DevOps & Herramientas', skills: ['Azure DevOps', 'Git', 'Docker', 'Kubernetes', 'Postman', 'CI/CD Pipelines', 'Scrum / Agile'] },
       { label: 'Liderazgo & Soft Skills', skills: ['Liderazgo Técnico', 'Mentoring', 'Code Reviews', 'Pair Programming', 'SOLID Principles', 'Clean Code', 'POO', 'Pensamiento Abstracto', 'Resolución de problemas'] }

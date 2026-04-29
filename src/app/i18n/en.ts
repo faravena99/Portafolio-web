@@ -95,7 +95,7 @@ export const translationEN: TranslationDictionary = {
     subtitle: 'Technologies, AI tools and soft skills',
     categories: [
       { label: 'Frontend', skills: ['Angular 17+', 'TypeScript', 'RxJS', 'Redux/NgRx', 'PrimeNG', 'HTML5', 'CSS3/SCSS', 'Bootstrap', 'Jasmine', 'Responsive Design'] },
-      { label: 'Backend & Data', skills: ['Spring Boot', 'Java', 'Node.js', 'NestJS', 'REST APIs', 'MongoDB', 'SQL Server', 'Apache Camel', 'Azure Storage Queue'] },
+      { label: 'Backend & Data', skills: ['Spring Boot', 'Java', '.NET', 'Node.js', 'NestJS', 'REST APIs', 'MongoDB', 'SQL Server', 'Apache Camel', 'Azure Storage Queue'] },
       { label: 'Artificial Intelligence', skills: ['GitHub Copilot', 'Claude (Anthropic)', 'Cursor AI', 'ChatGPT / GPT-4', 'Prompt Engineering', 'AI-Driven Development', 'LLM Tools', 'AI Tool Evaluation'] },
       { label: 'DevOps & Tools', skills: ['Azure DevOps', 'Git', 'Docker', 'Kubernetes', 'Postman', 'CI/CD Pipelines', 'Scrum / Agile'] },
       { label: 'Leadership & Soft Skills', skills: ['Technical Leadership', 'Mentoring', 'Code Reviews', 'Pair Programming', 'SOLID Principles', 'Clean Code', 'OOP', 'Abstract Thinking', 'Problem Solving'] }
