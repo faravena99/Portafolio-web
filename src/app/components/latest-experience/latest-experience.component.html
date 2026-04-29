@@ -1,11 +1,33 @@
 <section id="latest-experience" class="experience-section">
   <div class="container">
-    <h4>Última Experiencia</h4>
-    <div class="experience-card">
-      <h5>{{ experience.title }} en {{ experience.company }}</h5>
-      <p><strong>Periodo:</strong> {{ experience.period }}</p>
-      <p><strong>Ubicación:</strong> {{ experience.location }}</p>
-      <p>{{ experience.description }}</p>
+    <div class="section-header">
+      <span class="section-tag-exp">💼 Trayectoria</span>
+      <h2 class="section-title">Experiencia Profesional</h2>
+    </div>
+    <div class="experience-timeline">
+      <div
+        class="experience-card"
+        *ngFor="let exp of experiences"
+        [class.current]="exp.current"
+      >
+        <div class="card-header">
+          <div class="company-info">
+            <h5 class="job-title">{{ exp.title }}</h5>
+            <span class="company-name">
+              <i class="fa fa-building me-1"></i>{{ exp.company }}
+            </span>
+          </div>
+          <div class="card-meta">
+            <span class="period"><i class="fa fa-calendar me-1"></i>{{ exp.period }}</span>
+            <span class="location"><i class="fa fa-map-marker me-1"></i>{{ exp.location }}</span>
+            <span class="badge-current" *ngIf="exp.current">🤖 IA + Liderazgo</span>
+          </div>
+        </div>
+        <p class="description">{{ exp.description }}</p>
+        <div class="tags">
+          <span class="tag" *ngFor="let tag of exp.tags">{{ tag }}</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>

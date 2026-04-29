@@ -13,18 +13,27 @@ interface TechItem {
 })
 export class TechStackComponent {
   technologies: TechItem[] = [
+    // Frontend
     { name: 'Angular', icon: 'devicon-angularjs-plain', category: 'frontend' },
     { name: 'TypeScript', icon: 'devicon-typescript-plain', category: 'frontend' },
-    { name: 'Jasmine', icon: 'devicon-jasmine-plain', category: 'frontend' },
+    { name: 'RxJS', icon: 'devicon-rxjs-plain', category: 'frontend' },
     { name: 'Redux', icon: 'devicon-redux-original', category: 'frontend' },
-    { name: 'RxJS', icon: 'devicon-react-original', category: 'frontend' },
-    { name: 'Node.js', icon: 'devicon-nodejs-plain', category: 'backend' },
-    { name: 'SQL', icon: 'devicon-mysql-plain', category: 'backend' },
-    { name: 'Postman', icon: 'devicon-postman-plain', category: 'tools' },
     { name: 'HTML5', icon: 'devicon-html5-plain', category: 'frontend' },
     { name: 'CSS3', icon: 'devicon-css3-plain', category: 'frontend' },
     { name: 'Bootstrap', icon: 'devicon-bootstrap-plain', category: 'frontend' },
-    { name: 'Git', icon: 'devicon-git-plain', category: 'frontend' }
+    { name: 'Jasmine', icon: 'devicon-jasmine-plain', category: 'frontend' },
+    // Backend
+    { name: 'Java', icon: 'devicon-java-plain', category: 'backend' },
+    { name: 'Spring Boot', icon: 'devicon-spring-plain', category: 'backend' },
+    { name: 'Node.js', icon: 'devicon-nodejs-plain', category: 'backend' },
+    { name: 'MongoDB', icon: 'devicon-mongodb-plain', category: 'backend' },
+    { name: 'SQL Server', icon: 'devicon-microsoftsqlserver-plain', category: 'backend' },
+    // Tools
+    { name: 'Git', icon: 'devicon-git-plain', category: 'tools' },
+    { name: 'Azure DevOps', icon: 'devicon-azure-plain', category: 'tools' },
+    { name: 'Docker', icon: 'devicon-docker-plain', category: 'tools' },
+    { name: 'Postman', icon: 'devicon-postman-plain', category: 'tools' },
+    { name: 'GitHub Copilot', icon: 'devicon-github-original', category: 'tools' },
   ];
 
   get frontendTech() {

@@ -9,7 +9,7 @@ import { StatItem } from './about.interface';
 export class AboutComponent {
   personalInfo = {
     name: 'Felipe Alejandro Aravena Ponce',
-    title: 'Front End Senior Developer',
+    title: 'Full Stack Developer | AI-Driven Development',
     location: 'Santiago, Región Metropolitana',
     contact: {
       phone: '(56)973665437',
@@ -19,15 +19,18 @@ export class AboutComponent {
       github: 'https://github.com/faravena99',
     },
     description:
-      'Desarrollador Front End Senior con 5 años de experiencia en la creación de aplicaciones de alto rendimiento para el sector bancario. Especializado en Angular principalmente y React, con un enfoque en la optimización de la experiencia del usuario y la implementación de prácticas de desarrollo ágiles.',
+      'Desarrollador Full Stack con más de 6 años de experiencia construyendo soluciones de alto rendimiento. Especializado en Angular y Spring Boot, con un enfoque profundo en el desarrollo asistido por IA. Lidero equipos técnicos adoptando proactivamente herramientas como GitHub Copilot, Claude y Cursor para acelerar entregas y elevar la calidad del código.',
   };
 
   skills = [
     'Angular',
-    'React',
+    'Spring Boot',
+    'TypeScript',
     'JavaScript',
     'Node JS',
-    'Jasmine',
+    'Java',
+    'MongoDB',
+    'SQL Server',
     'Bootstrap',
     'CSS',
     'HTML',
@@ -47,14 +50,17 @@ export class AboutComponent {
   ];
 
   features: string[] = [
-    'Desarrollo Frontend Moderno',
-    'Diseño Responsivo',
-    'Optimización de Rendimiento',
-    'Clean Code',
+    'Desarrollo Full Stack Moderno',
+    'Liderazgo Técnico de Equipos',
+    'Desarrollo Asistido por IA',
+    'Especialización en Herramientas de IA',
+    'Integración de AI en Workflows',
+    'Clean Code & SOLID Principles',
   ];
 
   stats: StatItem[] = [
-    { number: '5+', label: 'Años de Experiencia' },
-    { number: '20+', label: 'Proyectos Completados' },
+    { number: '6+', label: 'Años de Experiencia' },
+    { number: '30+', label: 'Proyectos Completados' },
+    { number: '10+', label: 'Herramientas de IA' },
   ];
 }
