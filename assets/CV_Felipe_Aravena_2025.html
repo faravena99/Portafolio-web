@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Felipe Alejandro Aravena Ponce – Full Stack Developer | AI-Driven</title>
+  <style>
+    /* ── Reset & base ────────────────────────────────────────────── */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 11pt;
+      line-height: 1.55;
+      color: #1a1a2e;
+      background: #fff;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 36px 44px;
+    }
+
+    /* ── Header ──────────────────────────────────────────────────── */
+    .cv-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 3px solid #2563eb;
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+      gap: 16px;
+    }
+    .cv-header h1 {
+      font-size: 22pt;
+      font-weight: 800;
+      color: #1e3a8a;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+    .cv-header h2 {
+      font-size: 12pt;
+      font-weight: 500;
+      color: #2563eb;
+      margin-top: 4px;
+    }
+    .contact-block {
+      text-align: right;
+      font-size: 9.5pt;
+      color: #374151;
+      line-height: 1.7;
+    }
+    .contact-block a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    /* ── AI Badge ────────────────────────────────────────────────── */
+    .ai-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #2563eb, #0891b2);
+      color: #fff;
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 8.5pt;
+      font-weight: 600;
+      margin-top: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Summary ─────────────────────────────────────────────────── */
+    .summary {
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 22px;
+      font-size: 10.5pt;
+      color: #1e3a8a;
+      line-height: 1.6;
+    }
+
+    /* ── Section ─────────────────────────────────────────────────── */
+    .section { margin-bottom: 22px; }
+    .section-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #1e3a8a;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1.5px solid #bfdbfe;
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+    }
+
+    /* ── Experience ──────────────────────────────────────────────── */
+    .exp-item { margin-bottom: 18px; }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .exp-title {
+      font-weight: 700;
+      font-size: 11pt;
+      color: #111827;
+    }
+    .exp-company {
+      color: #2563eb;
+      font-weight: 600;
+      font-size: 10.5pt;
+    }
+    .exp-meta {
+      font-size: 9.5pt;
+      color: #6b7280;
+      white-space: nowrap;
+    }
+    .exp-body { margin-top: 6px; }
+    .exp-body ul {
+      padding-left: 18px;
+      margin-top: 4px;
+    }
+    .exp-body ul li {
+      margin-bottom: 4px;
+      font-size: 10.5pt;
+      color: #374151;
+    }
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 8px;
+    }
+    .exp-tags span {
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 8.5pt;
+      font-weight: 500;
+    }
+    .current-badge {
+      background: linear-gradient(135deg, #2563eb, #0891b2);
+      color: #fff !important;
+    }
+
+    /* ── Skills grid ─────────────────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .skill-category h4 {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #1e3a8a;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .skill-list span {
+      background: #f1f5f9;
+      color: #334155;
+      padding: 2px 7px;
+      border-radius: 5px;
+      font-size: 8.5pt;
+    }
+    .skill-list span.highlight {
+      background: #dbeafe;
+      color: #1e40af;
+      font-weight: 600;
+    }
+
+    /* ── AI Section ──────────────────────────────────────────────── */
+    .ai-section {
+      background: linear-gradient(135deg, #eff6ff, #f0fdfa);
+      border: 1.5px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 22px;
+    }
+    .ai-section .section-title { border-bottom-color: #93c5fd; }
+    .ai-tools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .ai-tool {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .ai-tool .tool-name {
+      font-weight: 700;
+      font-size: 10pt;
+      color: #1e3a8a;
+      min-width: 120px;
+    }
+    .ai-tool .tool-desc {
+      font-size: 9.5pt;
+      color: #374151;
+    }
+
+    /* ── Education & certs ───────────────────────────────────────── */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+    .edu-title { font-weight: 600; font-size: 10.5pt; color: #111827; }
+    .edu-inst { font-size: 9.5pt; color: #6b7280; }
+    .edu-date { font-size: 9.5pt; color: #6b7280; white-space: nowrap; }
+
+    /* ── Print ───────────────────────────────────────────────────── */
+    @media print {
+      body { padding: 24px 32px; font-size: 10pt; }
+      .cv-header h1 { font-size: 20pt; }
+      a { color: #2563eb !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="cv-header">
+  <div>
+    <h1>Felipe Alejandro Aravena Ponce</h1>
+    <h2>Full Stack Developer | AI-Driven Development</h2>
+    <span class="ai-badge">🤖 Especialista en Desarrollo con Inteligencia Artificial</span>
+  </div>
+  <div class="contact-block">
+    📧 <a href="mailto:felipe.aravena99@gmail.com">felipe.aravena99@gmail.com</a><br/>
+    📱 (+56) 9 7366 5437<br/>
+    🔗 <a href="https://linkedin.com/in/felipe-alejandro-aravena-ponce-174430163/">LinkedIn</a><br/>
+    💻 <a href="https://github.com/faravena99">github.com/faravena99</a><br/>
+    📍 Santiago, Chile
+  </div>
+</header>
+
+<!-- ══════════ RESUMEN ══════════ -->
+<div class="summary">
+  Desarrollador Full Stack con más de <strong>6 años de experiencia</strong> construyendo aplicaciones de alto impacto en sectores bancario, minero e industrial.
+  <strong>Especialista en desarrollo asistido por IA</strong>: integro proactivamente GitHub Copilot, Claude (Anthropic) y Cursor en el flujo diario, liderando la adopción de estas herramientas en el equipo.
+  Stack principal: <strong>Angular + Spring Boot (Java) + MongoDB / SQL Server</strong>. Aprendizaje continuo, mentalidad de liderazgo técnico y compromiso con la entrega de valor real.
+</div>
+
+<!-- ══════════ AI TOOLS ══════════ -->
+<div class="ai-section">
+  <div class="section-title">🤖 Especialización en Inteligencia Artificial</div>
+  <div class="ai-tools-grid">
+    <div class="ai-tool">
+      <span class="tool-name">GitHub Copilot</span>
+      <span class="tool-desc">Uso avanzado para autocompletado, generación de tests, refactoring y documentación en tiempo real.</span>
+    </div>
+    <div class="ai-tool">
+      <span class="tool-name">Claude (Anthropic)</span>
+      <span class="tool-desc">Diseño de arquitecturas, revisión de código, resolución de bugs complejos y pair-programming asistido por IA.</span>
+    </div>
+    <div class="ai-tool">
+      <span class="tool-name">Cursor AI</span>
+      <span class="tool-desc">IDE con IA integrada para edición multi-archivo, contexto de codebase y refactoring inteligente.</span>
+    </div>
+    <div class="ai-tool">
+      <span class="tool-name">Prompt Engineering</span>
+      <span class="tool-desc">Diseño de prompts especializados para maximizar la productividad del equipo con herramientas LLM.</span>
+    </div>
+    <div class="ai-tool">
+      <span class="tool-name">ChatGPT / GPT-4</span>
+      <span class="tool-desc">Análisis de requerimientos, generación de documentación técnica y resolución de problemas complejos.</span>
+    </div>
+    <div class="ai-tool">
+      <span class="tool-name">Liderazgo IA</span>
+      <span class="tool-desc">Evaluación, adopción y capacitación al equipo en nuevas herramientas de IA especializadas.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ EXPERIENCIA ══════════ -->
+<div class="section">
+  <div class="section-title">Experiencia Profesional</div>
+
+  <!-- Amaris -->
+  <div class="exp-item">
+    <div class="exp-header">
+      <div>
+        <span class="exp-title">Full Stack Developer</span> &nbsp;·&nbsp;
+        <span class="exp-company">Amaris Consulting</span>
+      </div>
+      <span class="exp-meta">2024 – Actualidad &nbsp;|&nbsp; Santiago, Chile</span>
+    </div>
+    <div class="exp-body">
+      <ul>
+        <li><strong>Liderazgo técnico</strong> en proyectos Full Stack para el sector industrial/minero, guiando al equipo en diseño de arquitectura, code reviews y estándares de desarrollo.</li>
+        <li>Integración avanzada de <strong>herramientas de IA</strong> (GitHub Copilot, Claude, Cursor) en el flujo de desarrollo, reduciendo tiempos de implementación ~35% y mejorando la calidad del código.</li>
+        <li>Evaluación <strong>proactiva de nuevas herramientas de IA</strong>, especializándome continuamente y capacitando al equipo en su uso efectivo.</li>
+        <li>Desarrollo de APIs REST con <strong>Spring Boot (Java)</strong> y frontends modernos con <strong>Angular 17+</strong>, conectados a <strong>MongoDB</strong> y <strong>SQL Server</strong>.</li>
+        <li>Implementación de soluciones con <strong>Azure DevOps</strong>: pipelines CI/CD, colas de mensajes (Azure Storage Queue) y despliegues en contenedores.</li>
+        <li>Resolución de problemas de rendimiento críticos: optimización de consultas SQL (batching 2100 parámetros), procesamiento asíncrono con Apache Camel y manejo de colas de eventos.</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="current-badge">🤖 IA + Liderazgo</span>
+        <span>Angular 17+</span><span>Spring Boot</span><span>Java</span>
+        <span>MongoDB</span><span>SQL Server</span><span>Azure DevOps</span>
+        <span>GitHub Copilot</span><span>Claude</span><span>Cursor</span>
+        <span>TypeScript</span><span>RxJS</span><span>PrimeNG</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2Brains -->
+  <div class="exp-item">
+    <div class="exp-header">
+      <div>
+        <span class="exp-title">Frontend Developer Senior</span> &nbsp;·&nbsp;
+        <span class="exp-company">2Brains</span>
+        <span style="font-size:9pt; color:#6b7280;"> — Banco de Chile</span>
+      </div>
+      <span class="exp-meta">Marzo 2023 – 2024 &nbsp;|&nbsp; Santiago, Chile</span>
+    </div>
+    <div class="exp-body">
+      <ul>
+        <li>Diseño y desarrollo de <strong>componentes reutilizables en Angular</strong> con principios SOLID, promoviendo escalabilidad y mantenimiento del código.</li>
+        <li>Implementación de servicios avanzados de <strong>Google Analytics</strong>, optimizando el seguimiento y análisis de métricas clave para mejora continua de la UX.</li>
+        <li>Integración fluida backend-frontend, reduciendo errores de comunicación y optimizando el tiempo de respuesta de las solicitudes.</li>
+        <li>Integración de <strong>Redux con Angular</strong> para gestión eficiente del estado global, mejorando rendimiento y fluidez de la interacción.</li>
+        <li>Escritura y mantenimiento de <strong>test unitarios con Jasmine</strong> asegurando cobertura robusta. Responsable de despliegues en producción.</li>
+      </ul>
+      <ul style="margin-top:6px;">
+        <li>⭐ Mejora del <strong>25% en tiempo de carga</strong> optimizando gestión de estado y estrategias de rendimiento.</li>
+        <li>⭐ Suite de pruebas con <strong>cobertura superior al 90%</strong>, reduciendo defectos en producción.</li>
+        <li>⭐ Proceso de despliegue eficiente y automatizado reduciendo tiempos y riesgos en cada release.</li>
+      </ul>
+      <div class="exp-tags">
+        <span>Angular</span><span>TypeScript</span><span>Redux</span><span>RxJS</span>
+        <span>Jasmine</span><span>Google Analytics</span><span>Bootstrap</span><span>Scrum</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soho -->
+  <div class="exp-item">
+    <div class="exp-header">
+      <div>
+        <span class="exp-title">Frontend Developer</span> &nbsp;·&nbsp;
+        <span class="exp-company">Soho</span>
+        <span style="font-size:9pt; color:#6b7280;"> — Gasco (Industria Energética)</span>
+      </div>
+      <span class="exp-meta">Noviembre 2021 – Febrero 2023 &nbsp;|&nbsp; Santiago, Chile</span>
+    </div>
+    <div class="exp-body">
+      <ul>
+        <li>Diseño y desarrollo de <strong>componentes reutilizables en Angular</strong> siguiendo principios SOLID para el sector energético.</li>
+        <li>Configuración e implementación de integración de servicios backend garantizando comunicación estable y eficiente.</li>
+        <li>Desarrollo de <strong>layouts responsivos</strong> con Bootstrap y CSS, adaptando interfaces a múltiples dispositivos.</li>
+        <li>Aplicación de <strong>metodologías Scrum</strong>, participando activamente en planificaciones, revisiones y retrospectivas.</li>
+        <li>Mantenimiento y ampliación de cobertura de código con <strong>test unitarios con Jasmine</strong>.</li>
+      </ul>
+      <ul style="margin-top:6px;">
+        <li>⭐ Componentes reutilizables que <strong>redujeron el tiempo de implementación</strong> en futuros módulos.</li>
+        <li>⭐ Layouts altamente responsivos mejorando la experiencia en dispositivos móviles.</li>
+      </ul>
+      <div class="exp-tags">
+        <span>Angular</span><span>TypeScript</span><span>Bootstrap</span>
+        <span>CSS3</span><span>Jasmine</span><span>REST APIs</span><span>Scrum</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mundo Crédito -->
+  <div class="exp-item">
+    <div class="exp-header">
+      <div>
+        <span class="exp-title">Fullstack Developer</span> &nbsp;·&nbsp;
+        <span class="exp-company">Mundo Crédito</span>
+        <span style="font-size:9pt; color:#6b7280;"> — Créditos Automotrices</span>
+      </div>
+      <span class="exp-meta">Enero 2021 – Septiembre 2021 &nbsp;|&nbsp; Santiago, Chile</span>
+    </div>
+    <div class="exp-body">
+      <ul>
+        <li><strong>Backend:</strong> Desarrollo de microservicios con <strong>Java + Spring Boot</strong> priorizando escalabilidad y alto rendimiento. Gestión de base de datos con <strong>PostgreSQL</strong>. Pruebas unitarias de microservicios con Postman.</li>
+        <li><strong>Frontend:</strong> Diseño y desarrollo de plataformas responsivas con <strong>Angular</strong>. Implementación e integración de servicios backend. Interfaces modernas centradas en la usabilidad.</li>
+      </ul>
+      <div class="exp-tags">
+        <span>Angular</span><span>Spring Boot</span><span>Java</span>
+        <span>PostgreSQL</span><span>Postman</span><span>Microservicios</span><span>REST APIs</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Qintess -->
+  <div class="exp-item">
+    <div class="exp-header">
+      <div>
+        <span class="exp-title">Frontend Developer</span> &nbsp;·&nbsp;
+        <span class="exp-company">Qintess</span>
+        <span style="font-size:9pt; color:#6b7280;"> — Banco Santander</span>
+      </div>
+      <span class="exp-meta">Enero 2019 – Abril 2020 &nbsp;|&nbsp; Santiago, Chile</span>
+    </div>
+    <div class="exp-body">
+      <ul>
+        <li><strong>Análisis funcional y técnico</strong> del terminal financiero bancario, identificando áreas clave para la migración tecnológica.</li>
+        <li>Desarrollo del <strong>nuevo frontend del terminal financiero</strong> con Angular, asegurando diseño moderno y responsivo.</li>
+        <li>Implementación de interfaces de usuario intuitivas mejorando la experiencia de los usuarios del terminal migrado.</li>
+        <li>Integración de servicios backend garantizando comunicación fluida y estable en la plataforma renovada.</li>
+      </ul>
+      <ul style="margin-top:6px;">
+        <li>⭐ Migración exitosa del terminal financiero mediante análisis detallado y desarrollo técnico alineado con el cliente.</li>
+        <li>⭐ Diseño adaptativo incrementando la usabilidad del sistema.</li>
+      </ul>
+      <div class="exp-tags">
+        <span>Angular</span><span>TypeScript</span><span>HTML5</span>
+        <span>CSS3</span><span>REST APIs</span><span>Análisis Funcional</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════ HABILIDADES ══════════ -->
+<div class="section">
+  <div class="section-title">Stack Tecnológico & Habilidades</div>
+  <div class="skills-grid">
+
+    <div class="skill-category">
+      <h4>Frontend</h4>
+      <div class="skill-list">
+        <span class="highlight">Angular 17+</span>
+        <span class="highlight">TypeScript</span>
+        <span>RxJS</span><span>Redux/NgRx</span>
+        <span>PrimeNG</span><span>HTML5</span>
+        <span>CSS3 / SCSS</span><span>Bootstrap</span>
+        <span>Jasmine</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h4>Backend & Datos</h4>
+      <div class="skill-list">
+        <span class="highlight">Spring Boot</span>
+        <span class="highlight">Java</span>
+        <span>Node.js</span><span>NestJS</span>
+        <span>MongoDB</span><span>SQL Server</span>
+        <span>REST APIs</span><span>Camel</span>
+        <span>Azure Storage Queue</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h4>Herramientas & IA</h4>
+      <div class="skill-list">
+        <span class="highlight">GitHub Copilot</span>
+        <span class="highlight">Claude AI</span>
+        <span class="highlight">Cursor AI</span>
+        <span>ChatGPT / GPT-4</span>
+        <span>Azure DevOps</span>
+        <span>Git</span><span>Docker</span>
+        <span>Postman</span><span>Scrum</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h4>Liderazgo & Soft Skills</h4>
+      <div class="skill-list">
+        <span class="highlight">Liderazgo Técnico</span>
+        <span>Mentoring</span>
+        <span>Code Reviews</span>
+        <span>Pair Programming</span>
+        <span>SOLID Principles</span>
+        <span>Clean Code</span>
+        <span>Agile / Scrum</span>
+        <span>POO</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h4>IA & Productividad</h4>
+      <div class="skill-list">
+        <span class="highlight">Prompt Engineering</span>
+        <span>AI-Driven Development</span>
+        <span>LLM Tools</span>
+        <span>Evaluación de herramientas IA</span>
+        <span>Capacitación en IA</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h4>Idiomas</h4>
+      <div class="skill-list">
+        <span>Español – Nativo</span>
+        <span>Inglés – Intermedio (lectura técnica avanzada)</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════ EDUCACIÓN ══════════ -->
+<div class="section">
+  <div class="section-title">Educación & Certificaciones</div>
+
+  <div class="edu-item">
+    <div>
+      <div class="edu-title">Angular Developer – Certificación Credly</div>
+      <div class="edu-inst">Escalab Tech Talent Hub &nbsp;·&nbsp; Santiago, Chile</div>
+    </div>
+    <span class="edu-date">Mayo 2022</span>
+  </div>
+
+  <div class="edu-item">
+    <div>
+      <div class="edu-title">Ingeniería / Tecnología en Informática</div>
+      <div class="edu-inst">Formación técnica profesional en desarrollo de software</div>
+    </div>
+    <span class="edu-date">Santiago, Chile</span>
+  </div>
+
+  <div class="edu-item">
+    <div>
+      <div class="edu-title">Formación continua en IA aplicada al desarrollo</div>
+      <div class="edu-inst">GitHub Copilot, Anthropic Claude, OpenAI, Cursor – Autoaprendizaje y proyectos reales</div>
+    </div>
+    <span class="edu-date">2023 – Actualidad</span>
+  </div>
+</div>
+
+<!-- ══════════ LOGROS ══════════ -->
+<div class="section">
+  <div class="section-title">Logros & Contribuciones Destacadas</div>
+  <ul style="padding-left:18px;">
+    <li style="margin-bottom:6px; font-size:10.5pt; color:#374151;">Implementé un sistema de integración de GitHub Copilot en el flujo de desarrollo del equipo, <strong>reduciendo tiempos de implementación en un ~35%</strong>.</li>
+    <li style="margin-bottom:6px; font-size:10.5pt; color:#374151;">Resolví un bug crítico de exportación masiva de datos que afectaba a miles de registros, optimizando las consultas SQL mediante <strong>batching de parámetros (SQL Server 2100 params limit)</strong>.</li>
+    <li style="margin-bottom:6px; font-size:10.5pt; color:#374151;">Lideré la adopción de Claude AI y Cursor como herramientas estándar del equipo, <strong>capacitando a 5+ desarrolladores</strong> en su uso efectivo.</li>
+    <li style="margin-bottom:6px; font-size:10.5pt; color:#374151;">Diseñé e implementé arquitecturas Full Stack para sistemas de monitoreo industrial con Angular 17+ y Spring Boot, atendiendo a <strong>múltiples faenas mineras simultáneas</strong>.</li>
+  </ul>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<div style="margin-top:24px; border-top:1px solid #e2e8f0; padding-top:12px; text-align:center; font-size:8.5pt; color:#94a3b8;">
+  Felipe Alejandro Aravena Ponce &nbsp;·&nbsp; Full Stack Developer | AI-Driven Development &nbsp;·&nbsp;
+  <a href="mailto:felipe.aravena99@gmail.com" style="color:#2563eb;">felipe.aravena99@gmail.com</a>
+</div>
+
+</body>
+</html>
