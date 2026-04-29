@@ -47,6 +47,22 @@ export class LanguageService {
     };
   }
 
+  getRaw(namespace: string, key: string): TranslationValue {
+    const lang = this.langSubject.value;
+    const dict = this.namespaceCache.get(`${lang}:${namespace}`);
+    if (!dict) return [];
+    const keys = key.split('.');
+    let value: TranslationValue | undefined = dict;
+    for (const k of keys) {
+      if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+        value = (value as TranslationDictionary)[k];
+      } else {
+        return [];
+      }
+    }
+    return value ?? [];
+  }
+
   changeLanguage(lang: Language): void {
     if (lang === this.langSubject.value) return;
     this.langSubject.next(lang);

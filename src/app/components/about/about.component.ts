@@ -26,11 +26,7 @@ export class AboutComponent implements OnInit {
   };
 
   features: string[] = [];
-  stats = [
-    { number: '6+', label: 'Años' },
-    { number: '30+', label: 'Proyectos' },
-    { number: '10+', label: 'Tecnologías' }
-  ];
+  stats: { number: string; label: string }[] = [];
 
   skills = [
     'Angular',
@@ -51,29 +47,24 @@ export class AboutComponent implements OnInit {
   constructor(private languageService: LanguageService) {}
 
   ngOnInit(): void {
-    this.updateFeatures();
-    // Actualizar características cuando cambia el idioma
+    this.updateDynamicContent();
     this.languageService.language$.subscribe(() => {
-      this.updateFeatures();
+      this.updateDynamicContent();
     });
   }
 
+  private updateDynamicContent(): void {
+    this.updateFeatures();
+    this.stats = [
+      { number: '6+', label: this.t('about.statsYears') as string },
+      { number: '30+', label: this.t('about.statsProjects') as string },
+      { number: '10+', label: this.t('about.statsTech') as string }
+    ];
+  }
+
   private updateFeatures(): void {
-    const featuresData = this.t('about.features');
-    // Intentar parsear si es string JSON
-    if (typeof featuresData === 'string' && featuresData.startsWith('[')) {
-      try {
-        this.features = JSON.parse(featuresData);
-      } catch {
-        this.features = [
-          'Desarrollo Full Stack con Angular & Spring Boot',
-          'Liderazgo técnico y mentoring',
-          'Integración de IA en pipelines de desarrollo',
-          'Arquitectura escalable y clean code',
-          'Metodologías ágiles y DevOps'
-        ];
-      }
-    } else if (Array.isArray(featuresData)) {
+    const featuresData = this.languageService.getRaw('shared', 'about.features');
+    if (Array.isArray(featuresData)) {
       this.features = featuresData as string[];
     } else {
       this.features = [

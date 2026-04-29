@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LanguageService } from '../../services/language.service';
 
 interface SkillCategory {
@@ -14,31 +14,35 @@ interface SkillCategory {
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss'],
 })
-export class SkillsComponent {
+export class SkillsComponent implements OnInit {
   t = (key: string) => this.languageService.useTranslation('shared').t(key);
+
+  private static ICONS = ['🎨', '⚙️', '🤖', '🛠️', '🚀'];
+  private static FLAGS = [
+    { isAI: false, isSoft: false },
+    { isAI: false, isSoft: false },
+    { isAI: true,  isSoft: false },
+    { isAI: false, isSoft: false },
+    { isAI: false, isSoft: true  }
+  ];
+
+  categories: SkillCategory[] = [];
 
   constructor(private languageService: LanguageService) {}
 
-  categories: SkillCategory[] = [
-    {
-      label: 'Frontend', icon: '🎨',
-      skills: ['Angular 17+', 'TypeScript', 'RxJS', 'Redux/NgRx', 'PrimeNG', 'HTML5', 'CSS3/SCSS', 'Bootstrap', 'Jasmine', 'Responsive Design']
-    },
-    {
-      label: 'Backend & Datos', icon: '⚙️',
-      skills: ['Spring Boot', 'Java', 'Node.js', 'NestJS', 'REST APIs', 'MongoDB', 'SQL Server', 'Apache Camel', 'Azure Storage Queue']
-    },
-    {
-      label: 'Inteligencia Artificial', icon: '🤖', isAI: true,
-      skills: ['GitHub Copilot', 'Claude (Anthropic)', 'Cursor AI', 'ChatGPT / GPT-4', 'Prompt Engineering', 'AI-Driven Development', 'LLM Tools', 'Evaluación de herramientas IA']
-    },
-    {
-      label: 'DevOps & Herramientas', icon: '🛠️',
-      skills: ['Azure DevOps', 'Git', 'Docker', 'Postman', 'CI/CD Pipelines', 'Scrum / Agile']
-    },
-    {
-      label: 'Liderazgo & Soft Skills', icon: '🚀', isSoft: true,
-      skills: ['Liderazgo Técnico', 'Mentoring', 'Code Reviews', 'Pair Programming', 'SOLID Principles', 'Clean Code', 'POO', 'Pensamiento Abstracto', 'Resolución de problemas']
-    },
-  ];
+  ngOnInit(): void {
+    this.buildCategories();
+    this.languageService.language$.subscribe(() => this.buildCategories());
+  }
+
+  private buildCategories(): void {
+    const raw = this.languageService.getRaw('shared', 'skills.categories') as any[];
+    if (!Array.isArray(raw)) return;
+    this.categories = raw.map((cat: any, i: number) => ({
+      label: cat.label,
+      icon: SkillsComponent.ICONS[i] ?? '',
+      ...SkillsComponent.FLAGS[i],
+      skills: cat.skills ?? []
+    }));
+  }
 }
